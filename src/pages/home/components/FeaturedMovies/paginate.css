@@ -4,11 +4,11 @@
   }
 
   .previous {
-    @apply border dark:border-yellow-400 border-[#574feb] text-yellow-400 font-semibold px-1 rounded-md  -mb-1
+    @apply border dark:border-yellow-400 border-[#574feb] dark:text-yellow-400 text-[#574feb] font-semibold px-1 rounded-md  -mb-1
   }
 
   .next {
-    @apply border dark:border-yellow-400 border-[#574feb] text-yellow-400 font-semibold px-1 rounded-md  -mb-1
+    @apply border dark:border-yellow-400 border-[#574feb]  dark:text-yellow-400 text-[#574feb] font-semibold px-1 rounded-md  -mb-1
   }
 
   .selected {

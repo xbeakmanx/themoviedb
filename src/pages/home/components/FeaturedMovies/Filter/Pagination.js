@@ -11,19 +11,21 @@ function Pagination({ pages }) {
 
   return (
     <div>
-      <ReactPaginate
-        breakLabel="..."
-        nextLabel=">"
-        onPageChange={(e) => {
-          handleUpdatePagination(e.selected + 1);
-        }}
-        pageRangeDisplayed={2}
-        pageCount={pages}
-        previousLabel="<"
-        renderOnZeroPageCount={null}
-        containerClassName="containerReactPaginate"
-        pageClassName="liReactPaginate"
-      />
+      {pages > 1 && (
+        <ReactPaginate
+          breakLabel="..."
+          nextLabel=">"
+          onPageChange={(e) => {
+            handleUpdatePagination(e.selected + 1);
+          }}
+          pageRangeDisplayed={2}
+          pageCount={pages}
+          previousLabel="<"
+          renderOnZeroPageCount={null}
+          containerClassName="containerReactPaginate"
+          pageClassName="liReactPaginate"
+        />
+      )}
     </div>
   );
 }

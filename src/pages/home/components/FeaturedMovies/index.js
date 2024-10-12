@@ -7,6 +7,7 @@ import SearchFilter from './Filter/SearchFilter';
 import TagFilters from './TagFilters';
 import { shallowEqual, useSelector } from 'react-redux';
 import Pagination from './Filter/Pagination';
+import Error from '../../../../components/error';
 
 function FeaturedMovies() {
   const filters = useSelector((state) => state.filters, shallowEqual);
@@ -20,7 +21,7 @@ function FeaturedMovies() {
       <section className="mt-9">
         <div className="sm:flex items-center justify-between ">
           <div>
-            <p className="font-semibold text-gray-700 text-base dark:text-white mb-3">Peliculas Destacadas</p>
+            <p className="font-semibold text-gray-700 text-base dark:text-white mb-3">Featured Movies</p>
             <TagFilters />
           </div>
 
@@ -30,21 +31,25 @@ function FeaturedMovies() {
           <Loader />
         ) : (
           <div className="mt-4 grid grid-cols-2 gap-y-5 sm:grid-cols-4 gap-x-5 ">
-            {movies?.map((el, index) => (
-              <Item
-                key={index}
-                id={el.id}
-                title={el.title}
-                poster={el.poster_path}
-                rate={el.vote_average}
-                hoverText={el.title}
-                releaseDate={el.release_date}
-              />
-            ))}
+            {error ? (
+              <Error />
+            ) : (
+              movies?.map((el, index) => (
+                <Item
+                  key={index}
+                  id={el.id}
+                  title={el.title}
+                  poster={el.poster_path}
+                  rate={el.vote_average}
+                  hoverText={el.title}
+                  releaseDate={el.release_date}
+                />
+              ))
+            )}
           </div>
         )}
       </section>
-      <Pagination pages={pages} />
+      {!error && <Pagination pages={pages} />}
     </>
   );
 }

@@ -15,6 +15,11 @@ export const filterSlice = createSlice({
       if (type === 'calification') {
         state.calification = value;
       }
+      if (type === 'all') {
+        state.genre = false;
+        state.date = false;
+        state.calification = false;
+      }
     },
 
     removeFilter: (state, action) => {

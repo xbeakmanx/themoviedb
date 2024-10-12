@@ -2,6 +2,7 @@ import React from 'react';
 import { useGetGenresQuery } from '../../../../../api/apiSlice';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { updateFilter } from '../../../../../features/filtersSlice';
+import { updateSearch } from '../../../../../features/searchTerm';
 
 function ModalFilter({ setShowModal }) {
   const { data, error, isLoading } = useGetGenresQuery();
@@ -16,11 +17,13 @@ function ModalFilter({ setShowModal }) {
 
   const handleUpdate = (type, value, nameGenre) => {
     dispatch(updateFilter({ type, value, nameGenre }));
+
+    dispatch(updateSearch(''));
   };
 
   return (
     <div className="mt-6">
-      <p className="dark:text-white -mt-3 mb-2 text-xs"> Filtrar por género</p>
+      <p className="dark:text-white -mt-3 mb-2 text-xs"> Filter by genre</p>
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
         {isLoading ? (
@@ -32,7 +35,7 @@ function ModalFilter({ setShowModal }) {
             return (
               <div
                 onClick={() => handleUpdate('genre', el.id, el.name)}
-                className={`border border-yellow-500 text-white px-2 py-1 rounded-md  cursor-pointer ${
+                className={`border border-yellow-500 dark:text-white px-2 py-1 rounded-md  cursor-pointer ${
                   ifExist ? 'bg-yellow-500' : ''
                 }`}
                 key={index}
@@ -62,7 +65,7 @@ function ModalFilter({ setShowModal }) {
       </div>
 
       <div className="relative mb-8 w-fit">
-        <p className="dark:text-white -mt-3 mb-2 text-xs">Calification more than</p>
+        <p className="dark:text-white -mt-3 mb-2 text-xs">Rate more than</p>
 
         <input
           value={filters.calification}

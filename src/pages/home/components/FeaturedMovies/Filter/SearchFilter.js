@@ -3,6 +3,7 @@ import Modal from '../../../../../components/Modal';
 import ModalFilter from './ModalFilter';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { updateSearch } from '../../../../../features/searchTerm';
+import { updateFilter } from '../../../../../features/filtersSlice';
 
 function SearchFilter({ activeFilter, setActiveFilter }) {
   const [showModal, setShowModal] = useState(false);
@@ -11,7 +12,9 @@ function SearchFilter({ activeFilter, setActiveFilter }) {
 
   const handleText = (e) => {
     dispatch(updateSearch(e));
+    dispatch(updateFilter({ type: 'all' }));
   };
+
   return (
     <>
       <Modal showModal={showModal} setShowModal={setShowModal} className="md:!w-[500px]">
@@ -39,7 +42,8 @@ function SearchFilter({ activeFilter, setActiveFilter }) {
           value={inputSearch}
           onChange={(e) => handleText(e.target.value)}
           className="text-xs ring-1 bg-transparent ring-gray-200 dark:ring-zinc-600 focus:ring-red-300 pl-10 pr-5 text-gray-600 dark:text-white  py-3 rounded-full w-full outline-none focus:ring-1"
-          placeholder="Buscar por nombre ..."
+          placeholder="Search by name ..."
+          autoComplete="off"
         />
         <button className="bg-blue-600 text-white px-3 py-1 text-xl rounded-md ml-2" onClick={() => setShowModal(true)}>
           <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

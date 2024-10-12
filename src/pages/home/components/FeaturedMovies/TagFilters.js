@@ -13,7 +13,7 @@ function TagFilters() {
   };
 
   return (
-    <div className="flex gap-3">
+    <div className="flex gap-3 md:mb-0 mb-4">
       {filters.genre && (
         <div
           className="bg-yellow-600 w-fit p-1 rounded-md flex justify-between items-center gap-2 px-2 cursor-pointer"

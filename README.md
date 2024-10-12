@@ -2,6 +2,14 @@
 
 Aplicación de exploración de películas que consume la API: The Movie Database
 
+## Ver DEMO
+
+https://themoviedb-drab.vercel.app/
+
+### Funcionamiento de la aplicación en video:
+
+https://drive.google.com/file/d/1P0UVoMVZZiWgvWhsbinVTf2OCK-P_d4H/view?usp=sharing
+
 ### Requisitos
 
 Asegúrate de tener Node.js instalado, preferiblemente en la versión 20.18.0 o superior.

@@ -1,0 +1,16 @@
+.containerReactPaginate {
+    list-style: none;
+    @apply flex dark:text-white md:w-[300px] justify-evenly mt-3
+  }
+
+  .previous {
+    @apply border dark:border-yellow-400 border-[#574feb] text-yellow-400 font-semibold px-1 rounded-md  -mb-1
+  }
+
+  .next {
+    @apply border dark:border-yellow-400 border-[#574feb] text-yellow-400 font-semibold px-1 rounded-md  -mb-1
+  }
+
+  .selected {
+    @apply dark:text-yellow-400 text-[#574feb] font-bold
+  }

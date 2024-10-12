@@ -1,0 +1,15 @@
+.modal {
+  @apply z-[60] dark:bg-[#1a202c] bg-white fixed left-0 right-0 ml-auto mr-auto w-[90%] md:w-[60%] p-0 rounded-md top-[10%];
+}
+
+.modal__body {
+  @apply z-[70] relative;
+}
+
+.modal__backdrop {
+  @apply fixed inset-0 z-50;
+}
+
+.modal__content {
+  @apply p-8;
+}
